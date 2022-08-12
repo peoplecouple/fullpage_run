@@ -13,7 +13,7 @@ $(function () {
       $('.section').eq(idx - 1).addClass('on');
 
       idx == 3 ? $('.gnb a').addClass('w') : $('.gnb a').removeClass('w');
-      //text바꾸는거
+      //t
       $('h1 span').text(TXT[idx - 1])
 
       //fullpage에는 slick-active처럼 active가 있음 

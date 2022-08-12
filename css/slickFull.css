@@ -1,3 +1,11 @@
+.txt {
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  font-size: 100px;
+  z-index: 999;
+}
+
 .Wrap {
   display: flex;
 }

@@ -1,4 +1,5 @@
 $(function () {
+  const TXT = ['page01', 'page02', 'page03', 'page04', 'footer']
   const SL = $('#slickFull').slick({
     arrows: false,
     // vertical: true,
@@ -11,9 +12,14 @@ $(function () {
     D > 0 ? SL.slick('slickPrev') : SL.slick('slickNext')
   })
 
-  SL.on('afterChange', function (s,e,c) {
+
+  $('.txt').text(TXT[0])
+  SL.on('afterChange', function (s, e, c) {
+
     let A = $('.slick-current');
     A.addClass('on').siblings().removeClass('on')
     // 위에처럼하면 애니메이션을 줄 수 있다.
+    $('.txt').text(TXT[c])
+
   })
 })
