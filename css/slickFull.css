@@ -1,0 +1,21 @@
+.Wrap {
+  display: flex;
+}
+
+
+#slickFull {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 50%;
+  /* flex때문에 스트레치 되서 밑에 align-self써야 스티키됨 */
+  align-self: flex-start;
+}
+
+section {
+  height: 100vh !important;
+}
+
+section:nth-child(even) {
+  background: pink;
+}

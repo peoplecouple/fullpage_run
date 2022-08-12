@@ -1,0 +1,238 @@
+/*
+ 애니메이션을 줄때 트랜스폼으로 준다.
+margin을 쓰면 레이아웃이 깨진다.
+ */
+
+.gnb {
+  position: fixed;
+  right: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+}
+
+.gnb ul>li {
+  width: 50px;
+}
+
+.gnb ul>li a {
+  position: relative;
+  display: block;
+  height: 20px;
+  font-size: 0;
+}
+
+.gnb ul>li a.w::after {
+  background: white;
+}
+
+.gnb ul>li a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 50%;
+  height: 2px;
+  background: pink;
+  transition: width .5s;
+}
+
+.gnb ul>li.on a::after {
+  width: 100%;
+}
+
+h1 {
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  z-index: 999;
+}
+
+.coverBtn {
+  position: fixed;
+  top: 100px;
+  right: 100px;
+  z-index: 999;
+  width: 36px;
+  height: 36px;
+  background: #333;
+  font-size: 0;
+}
+
+.coverBtn::before,
+.coverBtn::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  height: 2px;
+  background: #fff;
+  transition: 0.5s;
+}
+
+
+.coverBtn::before {
+  top: 8px;
+}
+
+.coverBtn::after {
+  bottom: 8px;
+}
+
+.coverBtn.on::before {
+  opacity: 0;
+}
+
+.coverBtn.on::after {
+  opacity: 0;
+}
+
+
+/* button 말고 밖에 박스에 position을 잡는다. */
+.coverBtn button {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+}
+
+.coverBtn button::before,
+.coverBtn button::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 5px;
+  right: 5px;
+  height: 2px;
+  background: #fff;
+  transition: 0.5s;
+}
+
+.coverBtn.on button::before {
+  transform: rotate(45deg);
+}
+
+.coverBtn.on button::after {
+  transform: rotate(135deg);
+}
+
+
+.content {
+  display: flex;
+  width: 1400px;
+  margin: 0 auto;
+  gap: 100px;
+}
+
+.section .dec {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* fullpage에서는 항상 on붙은데에 transition을 준다.
+안그러면 애니메이션이 끊긴다. */
+
+.section .pic {
+  width: 1200px;
+  opacity: 0;
+  transform: translateX(-500px);
+}
+
+
+.section.on .pic {
+  opacity: 1;
+  transform: translateX(0);
+  transition: 0.5s;
+}
+
+
+.section .dec {
+  opacity: 0;
+  transform: translateX(500px);
+}
+
+.section.on .dec {
+  opacity: 1;
+  transform: translateX(0);
+  transition: 0.5s 0.5s;
+}
+
+.porfolio02 {
+  background: url(../img/m01.jpg) no-repeat fixed center center/cover;
+}
+
+
+.porfolio01 .dec {
+  order: -1;
+}
+
+.copyright {
+  padding: 50px 0;
+  color: #fff;
+  background: #333;
+}
+
+.copyright .copy {
+  width: 1400px;
+  margin: 0 auto;
+}
+
+.totop a {
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+  padding: 10px;
+  background: #333;
+  color: #fff;
+  z-index: 999;
+}
+
+.contact {
+  position: fixed;
+  bottom: 100px;
+  left: 100px;
+  width: 400px;
+  display: flex;
+}
+
+.contact .txt {
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: 0.5s;
+  /* 박스에 갇혀서 글자를 가로로 길게 쓰게 하는것이 white-space */
+}
+
+.contact.on .txt {
+  width: 200px;
+}
+
+.contact::before {
+  content: "\e91c";
+  font-family: xeicon;
+}
+
+.contact.on::before {
+  content: "\e921";
+}
+
+.cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: #333;
+  color: #fff;
+  transition: 0.4;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover.on {
+  height: 100vh;
+}
+
